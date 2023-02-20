@@ -4,46 +4,11 @@ Production Script: Will youse final for deploying on pypi.
 
 class TextHighlights:
     # INFO: Class Attributes 
-    RED = '\033[38;5;235;48;5;9m'
-    GREEN = '\033[38;5;255;48;5;70m'
-    BLUE = '\033[48;5;39m'
-    YELLOW = '\033[38;5;235;48;5;220m'
-    ORANGE = '\033[38;5;235;48;5;214m'
-    FOREGROUND = '\033[0m'
-    BACKGROUND = '\033[0m'
+    DEFAULT_COLOR = '\033[0m'
+    
     def __init__(self, wrong_type: bool =False):
         # INFO: Instance Attributes
-        self.bg_orange = '\033[38;5;235;48;5;214m'
-        self.bg_red = '\033[38;5;235;48;5;9m'
-        self.bg_green = '\033[38;5;255;48;5;70m'
-        self.bg_yellow = '\033[38;5;235;48;5;220m'
-        self.bg_blue = '\033[48;5;39m'
-        self.bg_purple = '\033[38;5;235;48;5;134m'
         self.wrong_type = wrong_type
-
-
-        self.bg_checking_green = '\033[38;5;235;48;5;109m'
-
-        self.fg_green = '\033[38;5;28m'
-        self.fg_purple = '\033[38;5;91m'
-        self.fg_orange = '\033[38;5;214m'
-
-
-        self.reset_color = '\033[38;5;255;48;5;0m'
-
-        # FIXME : Remove - if not needed at the end. 
-        # self.error = f"{self.bg_red}ERROR {self.reset_color}:"
-        # self.success = f"{self.bg_green}SUCCESS {self.reset_color}:"
-        # self.warning = f"{self.bg_yellow}WARNING {self.reset_color}:"
-        # self.info = f"{self.bg_blue}INFO {self.reset_color}:"
-        self.loading = f"{self.bg_purple}Loading...{self.reset_color}"
-        self.checking= f"{self.bg_checking_green}Checking...↻{self.reset_color}"
-        self.searching= f"{self.bg_checking_green}Searching...↻{self.reset_color}"
-
-        self.color_dictionary = {}
-        self.foreground_colors = []
-        self.background_colors = []
-
 
     def custom_color_from_rgb(self, fg=None, bg=None):
         """
