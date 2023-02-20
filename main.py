@@ -1,12 +1,13 @@
+# from highlights import terminal
 from highlights import TextHighlights
 
 
 terminal = TextHighlights()
 
-terminal.log_error()
-terminal.log_error("ERROR Message with default prefix ERROR", prefix=True)
-terminal.log_error("ERROR Message without prefix", prefix=False)
-terminal.log_error("ERROR with custom colors", color_type='hexa', fg="#22223b", bg="#9c89b8")
+terminal.error()
+terminal.error("Message with default prefix ERROR", prefix=True)
+terminal.error("Message without prefix", prefix=False)
+terminal.error("ERROR with custom colors", color_type='hexa', fg="#22223b", bg="#4cbc84")
 
 print("\n")
 
@@ -45,7 +46,7 @@ for key, value in dict.items():
 
 
 
-
+# terminal.warning('HEALLO',prefix=True)
 # print(terminal.custom_log(
 #     color_type='rgb', 
 #     bg=(255, 153, 51), 
@@ -57,3 +58,15 @@ for key, value in dict.items():
 #     fg="#e1dad8"
 #     ))
 # print(terminal.custom_log(color_type='hexa'))
+
+
+
+terminal.error("Type anything you like!", prefix=True)
+terminal.warning("Type anything you like!", prefix=True)
+terminal.success("Type anything you like!", prefix=True)
+terminal.info("Type anything you like!", prefix=True)
+
+terminal.error("TEST", prefix=True, color_type='hexa', fg='#edf2f4', bg='#d90429')
+terminal.error("TEST 2", prefix=True, fg=204)
+
+
