@@ -11,7 +11,7 @@ class TextHighlights:
     ORANGE = '\033[38;5;235;48;5;214m'
     FOREGROUND = '\033[0m'
     BACKGROUND = '\033[0m'
-    def __init__(self):
+    def __init__(self, wrong_type: bool =False):
         # INFO: Instance Attributes
         self.bg_orange = '\033[38;5;235;48;5;214m'
         self.bg_red = '\033[38;5;235;48;5;9m'
@@ -19,7 +19,8 @@ class TextHighlights:
         self.bg_yellow = '\033[38;5;235;48;5;220m'
         self.bg_blue = '\033[48;5;39m'
         self.bg_purple = '\033[38;5;235;48;5;134m'
-        self.wrong_type = False
+        self.wrong_type = wrong_type
+
 
         self.bg_checking_green = '\033[38;5;235;48;5;109m'
 
@@ -44,10 +45,13 @@ class TextHighlights:
         self.background_colors = []
 
 
-    # TODO Work on learning about static and class methods. 
-    # TODO Work on optimizing the whole code. 
-
     def custom_color_from_rgb(self, fg=None, bg=None):
+        """
+        Description: return xterm color with custom foreground and background from rgb color tuple. default values are None.
+        Arguments:-
+            fg: tuple - rgb color tuple for foreground. Example (r, g, b)
+            bg: tuple - rgb color tuple for background. Example (r, g, b)
+        """
         if type(fg) == tuple or type(bg) == tuple:
             self.wrong_type = False
             if fg is None: 
@@ -68,6 +72,12 @@ class TextHighlights:
                 self.wrong_type = True   
     
     def custom_color_from_hexa(self, fg=None, bg=None):
+        """
+        Description: return xterm color with custom foreground and background from hexa color code. default values are None.
+        Arguments:-
+            fg: str - hexa color code for foreground. Example #000000
+            bg: str - hexa color code for background. Example #000000
+        """
         if type(fg) == str or type(bg) == str: 
             self.wrong_type = False
             if fg is None: 
@@ -89,6 +99,12 @@ class TextHighlights:
                 self.wrong_type = True    
             
     def custom_color_from_xterm(self, fg=None, bg=None):
+        """
+        Description: return xterm color with custom foreground and background from 256 standard bits. default values are None.
+        Arguments:-
+            fg: int -  bits value between 0 and 255 for foreground. Example 25
+            bg: int -  bits value between 0 and 255 for background. Example 25
+        """
         if type(fg) == int or type(bg) == int: 
             self.wrong_type = False
             if fg is None: 
@@ -104,127 +120,157 @@ class TextHighlights:
             else: 
                 self.wrong_type = True
 
-    def custom_log(self, text:str=None, color_type:str=None, fg=None, bg=None ):
-        """
-        Description:
-        Args: 
-            fg: Can add value int, str, tuple
-        """
+    # TODO Think about best description for this method.
+    def create_custom_color(self, color_type:str=None, fg=None, bg=None):
         if color_type == 'rgb':
-            xterm_color = self.custom_color_from_rgb(fg=fg, bg=bg)
-            if self.wrong_type:
-                return self.log_error("Give correct RGB Tuple.", prefix=True, bg=None, fg=9)
-            else: 
-                return f"{xterm_color}{text} \033[0m"
+            return self.custom_color_from_rgb(fg=fg, bg=bg)
         elif color_type == 'hexa':
-            xterm_color = self.custom_color_from_hexa(fg=fg, bg=bg)  
-            if self.wrong_type:
-                return self.log_error("Give correct HEXA color code.", prefix=True, bg=None, fg=9)
-                
-            else:
-                return f"{xterm_color}{text} \033[0m"
+            return self.custom_color_from_hexa(fg=fg, bg=bg)  
         elif color_type == 'xterm':
-            xterm_color = self.custom_color_from_xterm(fg=fg, bg=bg)
-            if self.wrong_type:
-                return self.log_error("Give Xterm 256 Standard Integer between 0 and 255", prefix=True, bg=None, fg=9)
-                
-            else:
-                return f"{xterm_color}{text} \033[0m"
+            return self.custom_color_from_xterm(fg=fg, bg=bg)
         else: 
             if color_type is not None:
                 return self.message("You have Entered wrong color type.\nAvailable color_type: 'rgb', 'hexa', 'xterm' ")
-            else: 
-                return text
-
-    # TODO Find a way to check for entered color type as well. 
-    # IDEA use simple conversion method given below. for example rgb_to_xterm
-
+            
     def message(self, text:str=None, color_type:str='xterm', fg=None, bg=None):
         """
-        Description: For displaying messages
-        """
+        Description: show your message on terminal with custom foreground and background colors.
+        Arguments:-
+            text: Message to display on the terminal. default-None
+            color_type: color type for creating foreground and background color. default - 'xterm', Available - 'rgb', 'hexa'. 
+            fg: Foreground color, default - None
+            bg: Background color, default - None
+
+        """  
+        custom_color = self.create_custom_color(color_type=color_type, fg=fg, bg=bg)
         if text is None: 
-            print(self.custom_log(text=text, color_type=color_type, fg=fg, bg=bg))
+            if self.wrong_type:
+                print(self.error("Give Xterm 256 Standard Integer between 0 and 255", prefix=True, bg=None, fg=9))
+            else:
+                print(f"{custom_color}{text} \033[0m")
         else: 
-            print(self.custom_log(text=text, color_type=color_type, fg=fg, bg=bg))
+            if self.wrong_type:
+                print(self.error("Give Xterm 256 Standard Integer between 0 and 255", prefix=True, bg=None, fg=9))
+            else:
+                print(f"{custom_color}{text} \033[0m")
     """
     TODO Think about function name for example:
-        1. terminal.log_error()
+        1. terminal.error()
         2. terminal.print_error()
         3. terminal.error()
-
-        FIXME Then change name of log_error_test method.
     """ 
-    # def log_error(self, color=RED, text:str = "ERROR", color_type:str='xterm'):
-    #     """
-    #     Description:
-    #     """
-    #     if color_type == 'rgb':
-    #         xterm_color = self.rgb_to_xterm(rgb=color)
-    #         return f"{xterm_color}{text} \033[0m:"
-    #     elif color_type == 'hexa':
-    #         xt_color = self.hexa_to_xterm(color)
-    #         return f"{xt_color}{text} \033[0m:"
-    #     elif color_type == 'xterm':
-    #         return f"{color}{text} \033[0m"
-    #     else: 
-    #         return f"Entered Wrong color type."
-    
-    def log_error(self, text:str=None, color_type:str='xterm', fg=9, bg=None, prefix:bool=False):
+    def prefix(self, tag:str=None, color:int=207):
+        try: 
+            if tag is None: 
+                return ""
+            elif tag is not None: 
+                return f"\033[1m[\033[0m\033[38;5;{color}m {tag} \033[0m\033[1m]\033[0m "
+        except TypeError:
+            print("Please provide an integer to color argument.")
+
+    def error(self, text:str=None, color_type:str='xterm', fg=None, bg=None, prefix:bool=False):
+        """
+        Description: 
+        """
         if text is None:
-            print(self.custom_log(text=text, color_type=color_type, fg=fg, bg=9 ))
+            print(text)
         else: 
             if prefix:
-                print(self.custom_log(text=f"ERROR: {text}", color_type=color_type, fg=fg, bg=bg))
+                color = self.create_custom_color(color_type=color_type, fg=fg, bg=bg)
+                print(f"{self.prefix('ERROR', color=9)}{color}{text} \033[0m")
             else: 
-                print(self.custom_log(text=text, color_type=color_type, fg=fg, bg=bg))
-        
-        
+                if fg is None and bg is None:
+                    color = self.create_custom_color(color_type=color_type, fg=9, bg=bg)
+                else: 
+                    color = self.create_custom_color(color_type=color_type, fg=fg, bg=bg)
+                print(f"{color}{text} \033[0m")
+    
+    def warning(self, text:str=None, color_type:str='xterm', fg=None, bg=None, prefix:bool=False):
+        color = self.create_custom_color(color_type=color_type, fg=fg, bg=bg)
+        if text is None:
+            print(text)
+        else: 
+            if prefix:
+                color = self.create_custom_color(color_type=color_type, fg=fg, bg=bg)
+                print(f"{self.prefix('WARNING', color=214)}{color}{text} \033[0m")
+            else: 
+                if fg is None and bg is None:
+                    color = self.create_custom_color(color_type=color_type, fg=214, bg=bg)
+                else: 
+                    color = self.create_custom_color(color_type=color_type, fg=fg, bg=bg)
+                print(f"{color}{text} \033[0m")
 
-    def log_warning(self, color:str=YELLOW, text:str="WARNING"):
-        """
-        Description:
-        """
-        return f"{color}{text} \033[0m:"
-    
-    def log_success(self, color:str=GREEN, text:str="SUCCESS"):
-        """
-        Description:
-        """
-        return f"{color}{text} \033[0m:"
-    
-    def log_info(self, color:str=BLUE, text:str="INFO"):
-        """
-        Description:
-        """
-        return f"{color}{text} \033[0m:" 
+    def success(self, text:str=None, color_type:str='xterm', fg=None, bg=None, prefix:bool=False):
+        color = self.create_custom_color(color_type=color_type, fg=fg, bg=bg)
+        if text is None:
+            print(text)
+        else: 
+            if prefix:
+                color = self.create_custom_color(color_type=color_type, fg=fg, bg=bg)
+                print(f"{self.prefix('SUCCESS', color=112)}{color}{text} \033[0m")
+            else: 
+                if fg is None and bg is None:
+                    color = self.create_custom_color(color_type=color_type, fg=112, bg=bg)
+                else: 
+                    color = self.create_custom_color(color_type=color_type, fg=fg, bg=bg)
+                print(f"{color}{text} \033[0m")
+        
+    def info(self, text:str=None, color_type:str='xterm', fg=None, bg=None, prefix:bool=False):
+        color = self.create_custom_color(color_type=color_type, fg=fg, bg=bg)
+        if text is None:
+            print(text)
+        else: 
+            if prefix:
+                color = self.create_custom_color(color_type=color_type, fg=fg, bg=bg)
+                print(f"{self.prefix('INFO', color=105)}{color}{text} \033[0m")
+            else: 
+                if fg is None and bg is None:
+                    color = self.create_custom_color(color_type=color_type, fg=105, bg=bg)
+                else: 
+                    color = self.create_custom_color(color_type=color_type, fg=fg, bg=bg)
+                print(f"{color}{text} \033[0m")
     
     # ============== # INFO - CONVERSIONS ================= # 
     def rgb_to_hex(self, rgb:tuple = (0, 0, 0)):
+        """
+        Description: return hexa color code from rgb color tuple. 
+        Arguments:-
+            rgb: Take rgb color tuple as an input argument. default - (0, 0, 0)
+        """
         try: 
             hexa = "#%02x%02x%02x" % rgb
             if len(hexa) == 7:
                return hexa
             else:
-                return f"{self.log_error()} Entered wrong tuple value."      
+                return f"{self.error()} Entered wrong tuple value."      
         except TypeError:
-            return f"{self.log_error()} Tuple needs only three arguments."
+            return f"{self.error()} Tuple needs only three arguments."
 
-    # INFO I think this is a static method !
     def hex_to_rgb(self, hexa:str = "#000000"):
+        """
+        Description: return rgb color tuple from hexa color code. 
+        Arguments:-
+            hexa: Take hexa color code as an input argument. default - #000000
+        """
         try: 
             if hexa[0] == '#':
                 hexa = hexa.split("#")[1]
                 if len(hexa) == 6:
                     return tuple(int(hexa[i:i+2], 16)  for i in (0, 2, 4))
                 else:
-                    self.log_error("HEXA code length should be equal to 6 without # symbol.", fg=9, bg=None)
+                    self.error("HEXA code length should be equal to 6 without # symbol.", fg=9, bg=None)
             else: 
                 print(f"Hexa code should start with # string: #000000")
         except TypeError: 
-            return self.log_error("Wrong HEXA code.")
+            return self.error("Wrong HEXA code.")
         
     def rgb_to_xterm(self, rgb:tuple=(0, 0, 0), val=False):
+        """
+        Description: return either xterm string or xterm color from rgb color tuple.
+        Arguments:-
+            rgb: Take rgb color tuple as an input. Default - (0, 0, 0) 
+            val: Return xterm string color if True, Return xterm color if False.
+        """
         try: 
             if val: 
                 return f"{rgb[0]};{rgb[1]};{rgb[2]}"
@@ -233,7 +279,13 @@ class TextHighlights:
         except TypeError: 
             self.wrong_type = True
 
-    def hexa_to_xterm(self, hexa:str="#000000", val_=False):
+    def hexa_to_xterm(self, hexa:str="#000000", val_:bool=False):
+        """
+        Description: return either xterm string or xterm color from hexa color code.
+        Arguments:-
+            hexa: Hexa color code. Default #000000
+            val_: Return xterm string color if True, Return xterm color if False.
+        """
         rgb = self.hex_to_rgb(hexa=hexa)
         try: 
             if val_: 
@@ -244,6 +296,17 @@ class TextHighlights:
                 return xterm_color
         except TypeError:
             self.wrong_type = True
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -313,5 +376,5 @@ class TextHighlights:
 
 
         
-
-        
+# INFO - Testing not creating object in main.py
+# terminal = TextHighlights()
