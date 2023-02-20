@@ -46,21 +46,6 @@ for key, value in dict.items():
 
 
 
-# terminal.warning('HEALLO',prefix=True)
-# print(terminal.custom_log(
-#     color_type='rgb', 
-#     bg=(255, 153, 51), 
-#     fg=(51, 25, 0)
-#     ))
-# print(terminal.custom_log(
-#     color_type='hexa', 
-#     bg="#855571", 
-#     fg="#e1dad8"
-#     ))
-# print(terminal.custom_log(color_type='hexa'))
-
-
-
 terminal.error("Type anything you like!", prefix=True)
 terminal.warning("Type anything you like!", prefix=True)
 terminal.success("Type anything you like!", prefix=True)
