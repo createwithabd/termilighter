@@ -4,36 +4,40 @@ from highlights import TextHighlights
 
 terminal = TextHighlights()
 
-terminal.error()
-terminal.error("Message with default prefix ERROR", prefix=True)
-terminal.error("Message without prefix", prefix=False)
-terminal.error("ERROR with custom colors", color_type='hexa', fg="#22223b", bg="#4cbc84")
 
-print("\n")
-
-terminal.message(text='Message with default values' ) # use all default values
-terminal.message(text="Message with custom foreground! - HEXA" ,color_type='hexa', fg="#d5bdaf")
-terminal.message(text="Message with custom background - HEXA", color_type='hexa', bg="#e76f51")
+terminal.message('\n======== HEXA ========\n' ) # use all default values
+terminal.message(text="Message with custom foreground! - HEXA" ,color_type='hexa', fg="#ff8fab")
+terminal.message(text="Message with custom background - HEXA", color_type='hexa', bg="#adc178")
 terminal.message(text="Message with custom foreground and background color - HEXA", color_type='hexa', fg="#f0e6ef", bg="#3d405b")
 
-print("\n")
-terminal.message(text='Message with DEFAULT VALUES' ) # use all default values
+terminal.message('\n======== Xterm ========\n'  ) # use all default values
 terminal.message(text="Message with custom foreground! - xterm" ,color_type='xterm', fg=166)
-terminal.message(text="Message with custom background - xterm", color_type='xterm', bg=135)
-terminal.message(text="Message with custom foreground and background color - xterm", color_type='xterm', fg=52, bg=51)
-
-print("\n")
-terminal.message(text='Message with DEFAULT VALUES' ) # use all default values
-terminal.message(text="Message with custom foreground! - rgb" ,color_type='rgb', fg=(206, 127, 252))
-terminal.message(text="Message with custom background - rgb", color_type='rgb', bg=(15, 189, 166))
-terminal.message(text="Message with custom foreground and background color - rgb", color_type='rgb', fg=(57, 48, 43), bg=(233, 104, 30))
+terminal.message(text="Message with custom background - xterm", color_type='xterm', bg=239)
+terminal.message(text="Message with custom foreground and background color - xterm", color_type='xterm', fg=236, bg=112)
 
 
-print("\nYou can pass variable as well!!")
+terminal.message('\n======== RGB ========\n' ) # use all default values
+terminal.message(text="Message with custom foreground! - rgb" ,color_type='rgb', fg=(39, 158, 126))
+terminal.message(text="Message with custom background - rgb", color_type='rgb', bg=(229, 152, 155))
+terminal.message(text="Message with custom foreground and background color - rgb", color_type='rgb', fg=(57, 48, 43), bg=(238, 185, 42))
+
+print('\n======== With Prefix ========\n')
+terminal.error("Type anything you like!", prefix=True)
+terminal.warning("Type anything you like!", prefix=True)
+terminal.success("Type anything you like!", prefix=True)
+terminal.info("Type anything you like!", prefix=True)
+
+print('\n======== Custom color with Prefix ========\n')
+terminal.error("Custom foreground with prefix", prefix=True, fg=9)
+terminal.error("Custom foreground and background with prefix", prefix=True, color_type='hexa', fg='#fae0e4', bg='#8c2f39')
 
 
+print("\n======== Without Prefix ===========\n")
+terminal.error("log error without prefix")
+terminal.error("ERROR with custom colors", color_type='hexa', fg="#545e56", bg="#edeec9")
 
 
+print("\n======= Passing Variables =========\n")
 dict = {
     "string_var": 'string',
     "int_var": 2,
@@ -42,16 +46,6 @@ dict = {
 }
 
 for key, value in dict.items():
-    terminal.message(text=f"Dict Values: {value}", fg=154)
-
-
-
-terminal.error("Type anything you like!", prefix=True)
-terminal.warning("Type anything you like!", prefix=True)
-terminal.success("Type anything you like!", prefix=True)
-terminal.info("Type anything you like!", prefix=True)
-
-terminal.error("TEST", prefix=True, color_type='hexa', fg='#edf2f4', bg='#d90429')
-terminal.error("TEST 2", prefix=True, fg=204)
+    terminal.message(text=f"Dict Values: {value}", fg=104)
 
 
