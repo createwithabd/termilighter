@@ -139,7 +139,7 @@ class TextHighlights:
             print("Please provide an integer to color argument.")
 
 
-    def apply_colors(self, text=None, color_type='xterm', fg=None, bg=None, default=None, is_return=False, prefix=False, tag=None):
+    def colorCustomization(self, text=None, color_type='xterm', fg=None, bg=None, default=None, is_return=False, prefix=False, tag=None):
         if text is None:
             color = self.create_custom_color(color_type=color_type, fg=fg, bg=bg)
         
@@ -173,24 +173,24 @@ class TextHighlights:
 
     
     def error(self, text:str=None, color_type:str='xterm', fg=None, bg=None, prefix:bool=False):
-        self.apply_colors(text=text, color_type=color_type, fg=fg, bg=bg, default=9, prefix=prefix, tag='ERROR' )
+        self.colorCustomization(text=text, color_type=color_type, fg=fg, bg=bg, default=9, prefix=prefix, tag='ERROR' )
 
         
     def warning(self, text:str=None, color_type:str='xterm', fg=None, bg=None, prefix:bool=False):
 
-        self.apply_colors(text=text, color_type=color_type, fg=fg, bg=bg, default=214, prefix=prefix, tag='WARNING' )
+        self.colorCustomization(text=text, color_type=color_type, fg=fg, bg=bg, default=214, prefix=prefix, tag='WARNING' )
 
 
     def success(self, text:str=None, color_type:str='xterm', fg=None, bg=None, prefix:bool=False):
-        self.apply_colors(text=text, color_type=color_type, fg=fg, bg=bg, default=112, prefix=prefix, tag='SUCCESS' )
+        self.colorCustomization(text=text, color_type=color_type, fg=fg, bg=bg, default=112, prefix=prefix, tag='SUCCESS' )
 
 
     def info(self, text:str=None, color_type:str='xterm', fg=None, bg=None, prefix:bool=False):
-        self.apply_colors(text=text, color_type=color_type, fg=fg, bg=bg, default=105, prefix=prefix, tag='INFO' )
+        self.colorCustomization(text=text, color_type=color_type, fg=fg, bg=bg, default=105, prefix=prefix, tag='INFO' )
 
 
     def highlight(self, text:str= None, color_type:str='xterm', fg=None, bg=None ):
-        return self.apply_colors(text=text, color_type=color_type, fg=fg, bg=bg, default=165, is_return=True)
+        return self.colorCustomization(text=text, color_type=color_type, fg=fg, bg=bg, default=165, is_return=True)
 
     # ============== # INFO - CONVERSIONS ================= #
 
