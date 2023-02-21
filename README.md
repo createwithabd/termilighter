@@ -36,12 +36,21 @@ log.message("My first message using this package.")
 ### Output
 ![log.message](./images/log_message.png)
 
+#### Arguments: 
+1. `text` - 
+2. `color_type` - 
+3. `fg` - 
+4. `bg` - 
+5. `prefix` - 
+6. `tag` - 
+7. `default` -
+
 You can change either foreground or background color.
 
-
-
-
-
+### `log.error()`
+### `log.warning()`
+### `log.success()`
+### `log.info()`
 
 ## Contributors
 ----
