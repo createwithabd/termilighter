@@ -125,6 +125,7 @@ class TextHighlights:
             if self.wrong_type:
                 print(self.error("Give Xterm 256 Standard Integer between 0 and 255", prefix=True, bg=None, fg=9))
             else:
+                custom_color = self.create_custom_color(color_type=color_type, fg=146, bg=bg)
                 print(f"{custom_color}{text} \033[0m")
 
 
