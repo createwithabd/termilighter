@@ -1,5 +1,5 @@
-# from highlights import terminal
-from highlights import TextHighlights
+# from highlights import log
+from highlighter import TextHighlights
 
 
 terminal = TextHighlights()
@@ -48,4 +48,7 @@ dict = {
 for key, value in dict.items():
     terminal.message(text=f"Dict Values: {value}", fg=104)
 
+
+
+print(f"Testing fun {terminal.highlight(text='key')}")
 
