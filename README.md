@@ -41,6 +41,10 @@ log.message("My first message using this package.")
 
 ![log.message](./images/log_message.png)
 
+
+
+
+
 ## Features 
 
 I build this module with flexibility to select any color type between `xterm` bit integer, `rgb` color tuple and `hexa` color code. You can use any color type to customize the output text on your terminal. There are some default methods as well which you can directly use to output respective text. Those methods are as follow; 
@@ -64,21 +68,24 @@ I build this module with flexibility to select any color type between `xterm` bi
 
 4. `bg` - Same as foreground color you can provide any value with respective to `color_type` argument. 
 5. `prefix` - Can be used in special method like `log.error()` - Prefix = `True` will display `[ ERROR ]` prefix at start of your output text. **Default:** `False`. 
+6. `tag` - Can customize prefix tag as well. **Default:** `None`. 
+7. `dc` - Default color to pass an argument to a method or it can be used to set the color for your prefix tag. 
 
 
-
-Still working on these
-
-1. `tag` - Can customize prefix tag as well. **Default:** `None`. 
-2. `dc` - Default color to pass an argument to a method. 
 
 ------
 ## Other features 
 
-1. Convert hexa color to rgb 
-2. Convert rgb to hexa 
-3. Convert hexa to xterm 
-4. Convert rgb to xterm 
+1. `rgb_to_hex(rgb:tuple=(0, 0, 0))` 
+2. `hex_to_rgb(hex:str = "#000000")` 
+3. `rgb_to_xterm(rgb:tuple=(0, 0, 0), val = False)`
+4. `hexa_to_xterm(hex:str = "#000000" val_ = False)`
+5. `custom_color_from_rgb(fg=None, bg=None)`
+6. `custom_color_from_hex(fg=None, bg=None)`
+7. `custom_color_from_xterm(fg=None, bg=None)`
+
+
+
 ## Contributors
 ----
 <div class='set' > 
