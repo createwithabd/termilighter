@@ -52,6 +52,13 @@ You can change either foreground or background color.
 ### `log.success()`
 ### `log.info()`
 
+------
+## Other features 
+
+1. Convert hexa color to rgb 
+2. Convert rgb to hexa 
+3. Convert hexa to xterm 
+4. Convert rgb to xterm 
 ## Contributors
 ----
 <div class='set' > 
