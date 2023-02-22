@@ -51,4 +51,3 @@ for key, value in dict.items():
 
 
 print(f"\nTesting fun {log.highlight(text='key')}")
-
