@@ -1,8 +1,5 @@
 # from highlights import log
-from highlighter import TextHighlights
-
-
-log = TextHighlights()
+from highlighter import log
 
 log.message("Message with default color!")
 log.message("\n======== HEXA ========\n")  # use all default values
