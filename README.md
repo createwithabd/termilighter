@@ -1,11 +1,11 @@
 # Highlighter  
 
-Build by `Abdullah Amjad` 
+Support by giving stars :star:  on `github`  - Follow for more.
 
 A small module that allows you to customize print statements or output text with different colors. You can use any color type from the following `xterm`, `rgb`, and `hexa` to select a color for your output text. 
 
 ## Requirements: 
-1. Python version >= `3.8.10`
+1. Python version >= `3` 
 
 ## Dependencies
 This project has no dependencies till now and can be used with `windows`, and `Linux` operating system. 
@@ -106,7 +106,7 @@ log.message(text="Message with Prefix and custom-tag.", prefix=True, tag="custom
 
 ###### Output
 
-![]()
+<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/msg_with_tag.png" align="left" alt="custom-tag" />
 
 <br>
 
@@ -127,13 +127,11 @@ log.message(
 
 <img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/custom_tag_color.png" align="left" />
 
-
-
 <br>
 
-------
 
-## Features 
+
+## Available Features 
 
 I build this module with flexibility to select any color type between `xterm` bit integer, `rgb` color tuple and `hexa` color code. You can use any color type to customize the output text on your terminal. There are some default methods as well which you can directly use to output respective text. Those methods are as follow; 
 
@@ -143,8 +141,6 @@ I build this module with flexibility to select any color type between `xterm` bi
 4. `log.success()` - You can use this method to output `SUCCESS` status on your terminal. 
 5. `log.info()` - You can use this method to output any kind of important `INFO` on your terminal. 
 6. `log.highligh()` - If you want to highlight any specific part in your print statement then, you can use this method inside the `f-string` or `.format` option of print statement.  
-
-
 
 #### Common Options: 
 1. `text` - Can provide any string value. **Default:** `None`. 
@@ -172,10 +168,18 @@ I build this module with flexibility to select any color type between `xterm` bi
 6. `custom_color_from_hex(fg=None, bg=None)`
 7. `custom_color_from_xterm(fg=None, bg=None)`
 
+## Contributing
 
+If you any suggestion to improve this package, feel free to create `issues` on `github`. Just create `PR` 
 
-## Contributors
-----
+Support by giving stars :star:  on `github`  - Follow for more.
+
+## Credits
+
+Build with Love :heart:. 
+
+##### Contributors
+
 <div class='set' > 
     <a href="https://github.com/createwithabd/highlighter/graphs/contributors">
     <img src="https://contrib.rocks/image?repo=createwithabd/highlighter" />
