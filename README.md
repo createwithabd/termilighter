@@ -43,6 +43,8 @@ log.message(text="\nMessage with custom foreground color.\n")
 
 <img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/default_msg.png" alt="default" align="left" />
 
+<br>
+
 ##### Example - 02
 
 ###### Input
@@ -57,6 +59,8 @@ log.message(
 
 <img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/custom_fg.png" alt="custom-fg" align="left" />
 
+<br>
+
 ##### Example - 03
 
 ~~~python
@@ -69,11 +73,11 @@ log.message(
 
 <img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/custom_bg.png" alt="custom-bg" align="left" />
 
+<br>
 
 
 
-
-
+------
 
 ## Features 
 
