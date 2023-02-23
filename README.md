@@ -30,16 +30,46 @@ from highlighter import log
 
 Now, you can use `log` to output colored text on terminal. 
 
-**For Example:**
+##### Example - 01 
+
+###### Input
 
 ~~~python
 from highlighter import log
-log.message("My first message using this package.")
+log.message(text="\nMessage with custom foreground color.\n")
 ~~~
 
-### Output
+###### Output
 
-![log.message](./images/log_message.png)
+<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/default_msg.png" alt="default" align="left" />
+
+##### Example - 02
+
+###### Input
+
+~~~python 
+log.message(
+    text="Message with custom foreground color.", color_type="hex", fg="#2a9d8f"
+)
+~~~
+
+###### Output
+
+<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/custom_fg.png" alt="custom-fg" align="left" />
+
+##### Example - 03
+
+~~~python
+log.message(
+    text="\nMessage with custom background color.", color_type="hex", bg="#d9ed92"
+)
+~~~
+
+###### Output
+
+<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/custom_bg.png" alt="custom-bg" align="left" />
+
+
 
 
 
