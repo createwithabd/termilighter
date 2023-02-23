@@ -30,20 +30,108 @@ from highlighter import log
 
 Now, you can use `log` to output colored text on terminal. 
 
-**For Example:**
+##### Example - 01: Default Message
+
+###### Input
 
 ~~~python
 from highlighter import log
-log.message("My first message using this package.")
+log.message(text="\nMessage with custom foreground color.\n")
 ~~~
 
-### Output
+###### Output
 
-![log.message](./images/log_message.png)
+<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/default_msg.png" alt="default" align="left" />
+
+<br>
+
+##### Example - 02: Message with Custom `Foreground` Color
+
+###### Input
+
+~~~python 
+log.message(
+    text="Message with custom foreground color.", color_type="hex", fg="#2a9d8f"
+)
+~~~
+
+###### Output
+
+<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/custom_fg.png" alt="custom-fg" align="left" />
+
+<br>
+
+##### Example - 03: Message with Custom `Background` Color
+
+###### Input
+
+~~~python
+log.message(
+    text="\nMessage with custom background color.", color_type="hex", bg="#d9ed92"
+)
+~~~
+
+###### Output
+
+<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/custom_bg.png" alt="custom-bg" align="left" />
+
+<br>
+
+##### Example - 05: Message with Custom `Foreground` & `Background` Color 
+
+###### Input
+
+~~~python
+log.message(
+    text="\nMessage with custom foreground and background color.",
+    color_type="hex",
+    fg="#dd6e42",
+    bg="#eff7f6",
+)
+~~~
+
+###### Output
+
+<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/custom_fg_bg.png" alt="custom-bg-fg" align="left" />
+
+<br>
+
+##### Example - 06: Message with `Prefix` and Custom `Tag`
+
+###### Input
+
+~~~python 
+log.message(text="Message with Prefix and custom-tag.", prefix=True, tag="custom-tag")
+~~~
+
+###### Output
+
+![]()
+
+<br>
+
+##### Example - 07: Message with `Prefix`, Custom `Tag` and Custom `tag-color`
+
+###### Input
+
+~~~python 
+log.message(
+    text="Message with Prefix, custom-tag and custom tag color.",
+    prefix=True,
+    tag="custom-tag",
+    dc=49,
+)
+~~~
+
+###### Output: 
+
+<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/custom_tag_color.png" align="left" />
 
 
 
+<br>
 
+------
 
 ## Features 
 
@@ -58,7 +146,7 @@ I build this module with flexibility to select any color type between `xterm` bi
 
 
 
-#### Options: 
+#### Common Options: 
 1. `text` - Can provide any string value. **Default:** `None`. 
 2. `color_type` - Can provide any color type from `xterm` , `rgb` and `hexa` . **Default:** `xterm`
 3. `fg` - Can provide any foreground color with respect to its color type. For Example: 
