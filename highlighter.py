@@ -109,7 +109,7 @@ class TextHighlights:
         color_type: str = "xterm",
         fg=None,
         bg=None,
-        dc=None,
+        dc=214,
         is_return=False,
         prefix=False,
         tag=None,
