@@ -7,8 +7,8 @@ with open("README.md", "r") as fh:
 
 
 setup(
-    name="highlighter",
-    version="1.0.0",
+    name="color_output",
+    version="0.0.1",
     author="Abdullah Amjad",
     author_email=os.environ.get("EMAIL"),
     description="Package for highlighting output text on terminal, and converting hex and rgb colors to xterm colors.",
