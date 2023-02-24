@@ -1,4 +1,4 @@
-# Highlighter
+# Color Terminal Output
 
 Support by giving stars :star: on `github` - Follow for more.
 
