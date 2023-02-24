@@ -2,17 +2,17 @@ from setuptools import setup, find_packages
 import os
 
 with open("README.md", "r") as f:
-    log_description = f.read()
+    long_description = f.read()
 
 
 setup(
     name="termilighter",
-    version="0.0.1",
+    version="0.0.2",
     author="Abdullah Amjad",
     author_email=os.environ.get("EMAIL"),
     url="https://github.com/createwithabd/highlighter",
     description="Package for highlighting output text on terminal, and converting hex and rgb colors to xterm colors.",
-    log_description=log_description,
+    long_description=long_description,
     long_description_content_type="text/markdown",
     keywords=[
         "terminal-highlight",

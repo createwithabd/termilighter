@@ -1,4 +1,4 @@
-# Highlighter  
+# Termilighter  
 
 Support by giving stars :star:  on `github`  - Follow for more.
 
@@ -13,19 +13,16 @@ This project has no dependencies till now and can be used with `windows`, and `L
 ## Installation
 You can install it by running following command on your terminal.
 ~~~bash
-pip install highlighter
+pip install termilighter
 ~~~
-OR 
-~~~bash
-pip3 install highlighter
-~~~
+
 
 ## Usage
 
-To use this package, import `log` method from `highlighter` inside your required python script .
+To use this package, import `log` method from `termilighter` inside your required python script .
 
 ~~~python
-from highlighter import log
+from termilighter import log
 ~~~
 
 Now, you can use `log` to output colored text on terminal. 
@@ -35,13 +32,13 @@ Now, you can use `log` to output colored text on terminal.
 ###### Input
 
 ~~~python
-from highlighter import log
-log.message(text="\nMessage with custom foreground color.\n")
+from termilighter import log
+log.message(text="Message with custom foreground color.")
 ~~~
 
 ###### Output
 
-<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/default_msg.png" alt="default" align="left" />
+<img src="https://raw.githubusercontent.com/createwithabd/termilighter/master/images/default_msg.png" alt="default" align="left" />
 
 <br>
 
@@ -57,7 +54,7 @@ log.message(
 
 ###### Output
 
-<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/custom_fg.png" alt="custom-fg" align="left" />
+<img src="https://raw.githubusercontent.com/createwithabd/termilighter/master/images/custom_fg.png" alt="custom-fg" align="left" />
 
 <br>
 
@@ -73,7 +70,7 @@ log.message(
 
 ###### Output
 
-<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/custom_bg.png" alt="custom-bg" align="left" />
+<img src="https://raw.githubusercontent.com/createwithabd/termilighter/master/images/custom_bg.png" alt="custom-bg" align="left" />
 
 <br>
 
@@ -92,7 +89,7 @@ log.message(
 
 ###### Output
 
-<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/custom_fg_bg.png" alt="custom-bg-fg" align="left" />
+<img src="https://raw.githubusercontent.com/createwithabd/termilighter/master/images/custom_fg_bg.png" alt="custom-bg-fg" align="left" />
 
 <br>
 
@@ -106,7 +103,7 @@ log.message(text="Message with Prefix and custom-tag.", prefix=True, tag="custom
 
 ###### Output
 
-<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/msg_with_tag.png" align="left" alt="custom-tag" />
+<img src="https://raw.githubusercontent.com/createwithabd/termilighter/master/images/msg_with_tag.png" align="left" alt="custom-tag" />
 
 <br>
 
@@ -125,7 +122,7 @@ log.message(
 
 ###### Output: 
 
-<img src="https://raw.githubusercontent.com/createwithabd/highlighter/master/images/custom_tag_color.png" align="left" />
+<img src="https://raw.githubusercontent.com/createwithabd/termilighter/master/images/custom_tag_color.png" align="left" />
 
 <br>
 
@@ -140,7 +137,7 @@ I build this module with flexibility to select any color type between `xterm` bi
 3. `log.warning()` - You can use this method to output `WARNING` on your terminal. 
 4. `log.success()` - You can use this method to output `SUCCESS` status on your terminal. 
 5. `log.info()` - You can use this method to output any kind of important `INFO` on your terminal. 
-6. `log.highligh()` - If you want to highlight any specific part in your print statement then, you can use this method inside the `f-string` or `.format` option of print statement.  
+6. `log.highlight()` - If you want to highlight any specific part in your print statement then, you can use this method inside the `f-string` or `.format` option of print statement.  
 
 #### Common Options: 
 1. `text` - Can provide any string value. **Default:** `None`. 
@@ -181,8 +178,8 @@ Build with Love :heart:.
 ##### Contributors
 
 <div class='set' > 
-    <a href="https://github.com/createwithabd/highlighter/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=createwithabd/highlighter" />
+    <a href="https://github.com/createwithabd/termilighter/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=createwithabd/termilighter" />
     </a>
 </div>
 
