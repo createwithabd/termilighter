@@ -1,14 +1,13 @@
 """
 Author: Abdullah Amjad 
 Data of Creation: 21.02.2023
-Contributor: ''
 """
 
 
 class TextHighlights:
     # INFO: Class Attributes
     RESET_COLOR = "\033[0m"
-    MY_COLOR = 9
+    RED_COLOR = 9
 
     def __init__(self, wrong_type: bool = False):
         # INFO: Instance Attributes
@@ -187,7 +186,7 @@ class TextHighlights:
                         "You have entered wrong foreground or background color w.r.t your color_type.",
                         prefix=True,
                         bg=None,
-                        fg=TextHighlights.MY_COLOR,
+                        fg=TextHighlights.RED_COLOR,
                     )
                 )
             else:
@@ -204,7 +203,7 @@ class TextHighlights:
                             "You have entered wrong foreground or background color w.r.t your color_type.",
                             prefix=True,
                             bg=None,
-                            fg=TextHighlights.MY_COLOR,
+                            fg=TextHighlights.RED_COLOR,
                         )
                     )
                 else:
@@ -321,7 +320,7 @@ class TextHighlights:
             else:
                 self.error(
                     f"Entered wrong tuple value.",
-                    fg=TextHighlights.MY_COLOR,
+                    fg=TextHighlights.RED_COLOR,
                     bg=None,
                     prefix=True,
                 )
@@ -329,7 +328,7 @@ class TextHighlights:
             self.wrong_type = True
             self.error(
                 f"Tuple needs only three arguments.",
-                fg=TextHighlights.MY_COLOR,
+                fg=TextHighlights.RED_COLOR,
                 bg=None,
                 prefix=True,
             )
@@ -348,21 +347,21 @@ class TextHighlights:
                 else:
                     self.error(
                         f"hex code length should be equal to 6 without # symbol.",
-                        fg=TextHighlights.MY_COLOR,
+                        fg=TextHighlights.RED_COLOR,
                         bg=None,
                         prefix=True,
                     )
             else:
                 self.error(
                     f"hex code should start with # string: #000000",
-                    fg=TextHighlights.MY_COLOR,
+                    fg=TextHighlights.RED_COLOR,
                     bg=None,
                     prefix=True,
                 )
         except TypeError:
             self.wrong_type = True
             self.error(
-                f"Wrong hex code.", fg=TextHighlights.MY_COLOR, bg=None, prefix=True
+                f"Wrong hex code.", fg=TextHighlights.RED_COLOR, bg=None, prefix=True
             )
 
     def rgb_to_xterm(self, rgb: tuple = (0, 0, 0), val=False):
