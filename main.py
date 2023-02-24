@@ -1,5 +1,5 @@
 # from highlights import log
-from color_output import log
+from colorOutput import log
 
 log.message("Message with default color!")
 log.message("\n======== HEXA ========\n")  # use all default values
