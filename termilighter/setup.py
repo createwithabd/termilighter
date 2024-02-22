@@ -2,39 +2,40 @@ from setuptools import setup, find_packages
 import os
 
 with open("README.md", "r") as f:
-    long_description = f.read()
+    readme = f.read()
+
+with open("HISTORY.md") as history_file:
+    history = history_file.read()
 
 
 setup(
     name="termilighter",
+    package_dir={"": "src"},
+    packages=find_packages(where="src", include=["*"]),
+    include_package_data=True,
     version="0.0.2",
     author="Abdullah Amjad",
     author_email=os.environ.get("EMAIL"),
-    url="https://github.com/createwithabd/highlighter",
-    description="Package for highlighting output text on terminal, and converting hex and rgb colors to xterm colors.",
-    long_description=long_description,
+    url="https://github.com/createwithabd/termilighter/tree/master/termilighter",
+    description="Package for customizing terminal output display.",
+    long_description=readme + "\n\n" + history,
     long_description_content_type="text/markdown",
     keywords=[
-        "terminal-highlight",
-        "print-terminal",
-        "color-terminal",
-        "xterm-colors",
-        "conversion",
-        "rgb_to_hex",
-        "hex_to_rgb development",
-        "highlight",
+        "color output",
+        "highlighter",
+        "color converter",
+        "converter",
+        "termilighter",
     ],
-    py_modules=["termilighter"],
-    package_dir={"": "src"},
     python_requires=">=3",
     install_requires=[""],
-    packages=find_packages(),
-    include_package_data=True,
+    test_suite="tests",
     classifiers=[
-        "Programming Language :: Python :: 3.0",
         "Operating System :: POSIX :: Linux",
         "Operating System :: Microsoft :: Windows",
         "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3.0",
     ],
     license="License :: OSI Approved :: MIT License",
+    zip_safe=False,
 )
